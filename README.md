@@ -7,8 +7,8 @@ locally you need to serve up the content with a local http server, so
 something like the following should work:
 
 ```sh
- $ git clone https://github.com/jshamley/javascripttricks
- $ cd javascripttricks
+ $ git clone https://github.com/jshamley/javascript-tricks
+ $ cd javascript-tricks
  $ npm install
  $ npm start
  Available on: http://127.0.0.1:8080

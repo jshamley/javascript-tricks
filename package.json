@@ -1,0 +1,24 @@
+{
+  "name": "javascripttricks",
+  "version": "1.0.0",
+  "description": "These are the notes for a presentation given by Jeff Shamley ([@jshamley](https://github.com/jshamley)) for the Northern Colorado JavaScript Meetup",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "http-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jshamley/javascript-tricks.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jshamley/javascript-tricks/issues"
+  },
+  "homepage": "https://github.com/jshamley/javascript-tricks#readme",
+  "dependencies": {
+    "http-server": "^0.9.0",
+    "reveal.js": "^3.4.1"
+  }
+}
