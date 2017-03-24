@@ -18,3 +18,37 @@ Jeff Shamley | @jeff_shamley | https://jeffshamley.com
  <!-- .element: class="fragment" -->
 
 ---
+
+# Block Scope
+
+---
+
+# Double Negation
+
+---
+
+# Use Strict
+
+---
+
+# Strict Equals
+
+---
+
+# Default Variable Values
+
+---
+
+# Short Circuit Conditionals
+
+---
+
+# Convert Variable Types
+
+---
+
+# JavaScript Tricks
+
+## Questions?
+
+Jeff Shamley | @jeff_shamley | https://jeffshamley.com
