@@ -12,5 +12,6 @@ something like the following should work:
  $ npm install
  $ npm start
  Available on: http://127.0.0.1:8080
+ Available on: http://192.168.0.146:8080
  Hit CTRL-C to stop the server
 ```

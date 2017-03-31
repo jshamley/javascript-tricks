@@ -47,6 +47,17 @@ if (true) {
 console.log(vehicle);
 // Uncaught ReferenceError: vehicle is not defined
 ```
+```
+let vehicle;
+if (true) {
+  vehicle = 'car';
+} else {
+  vehicle = 'truck';
+}
+console.log(vehicle);
+// 'car'
+```
+ <!-- .element: class="fragment" -->
 ___
 # Block Scope
 ```
@@ -112,15 +123,18 @@ ___
 ```
 if (obj && obj.someProperty) {
   return true;
+} else {
+  return false;
 }
-return false;
 ```
-___
-# Double Negation
-
+```
+return obj && obj.someProperty ? true : false;
+```
+ <!-- .element: class="fragment" -->
 ```
 return !!obj.someProperty;
 ```
+ <!-- .element: class="fragment" -->
 ___
 # Double Negation
 
@@ -129,18 +143,23 @@ const obj = {
   prop: 'testing'
 };
 const otherObj = {};
-function hasProp(arg) {
-  return !!arg.prop;
+const newObj = {
+  prop: ''
 }
+let newestObj;
+const hasProp = arg => !!arg.prop;
 hasProp(obj); // true
 hasProp(otherObj); // false
+hasProp(newObj); // false
+hasProp(newestObj);
+// Uncaught TypeError: Cannot read property 'prop' of undefined
 ```
 ---
 
-# Default Variable Values
+## Default Variables Values
 
 ___
-# Default Variable Values
+## Default Variable Values
 ```
 var vehicle;
 if (!!obj.prop) {
@@ -150,22 +169,28 @@ if (!!obj.prop) {
 }
 ```
 ___
-# Default Variable Values
+## Default Variable Values
 ```
 var vehicle = obj.prop || 'truck';
 ```
+___
+## Default Argument Values
+```
+function vehicleType(type = 'truck') {
+  return type;
+}
+const vehicleType = (type = 'truck') => type;
+```
 ---
 
-# Short Circuit Conditionals
+## Empty Object Test
 
 ```
-
+(Object.keys(obj).length === 0)
 ```
- <!-- .element: class="fragment" -->
-
 ---
 
-# Convert Variable Types
+## Converting Variable Types
 
 ```
 let x = 15;
