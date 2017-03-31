@@ -193,14 +193,35 @@ const vehicleType = (type = 'truck') => type;
 ## Converting Variable Types
 
 ```
-let x = 15;
-x + '15';
-console.log(x)
+var x = 15;
+var y = x + '15';
+console.log(y);
 ```
- <!-- .element: class="fragment" -->
- // string... '1515'
- <!-- .element: class="fragment" -->
+<!-- .element: class="fragment" -->
+```
+// string... '1515'
+```
+<!-- .element: class="fragment" -->
+___
 
+## Converting Variable Types
+
+```
+var x = '15';
+var y = parseInt(x);
+console.log(y);
+// number 15
+```
+___
+
+## Converting Variable Types
+
+```
+var x = {key:'value',key2:'value2'};
+var y = Object.keys(x);
+console.log(y);
+// ['key','key2']
+```
 ---
 
 # JavaScript Tricks
