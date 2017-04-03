@@ -8,6 +8,7 @@ Jeff Shamley | @jeff_shamley | https://jeffshamley.com
 # Caveats
 
 ---
+
 # IIFE
 #### Immediately Invoked Function Expression
 
@@ -21,6 +22,20 @@ console.log(vehicle);
 // Uncaught ReferenceError: vehicle is not defined
 ```
  <!-- .element: class="fragment" -->
+___
+
+# IIFE
+
+```
+var vehicle = 'truck';
+(function() {
+  var vehicle = 'car';
+  console.log(vehicle);
+  // 'car'
+})();
+console.log(vehicle);
+// 'truck'
+```
 ---
 
 # Block Scope
@@ -72,6 +87,9 @@ if (true) {
 }
 ```
 ---
+
+# Scope Gotcha
+
 ```
 for (var i = 0; i < 10; i++) {
   setTimeout(function() {
@@ -81,11 +99,13 @@ for (var i = 0; i < 10; i++) {
 ```
 
 ```
-// 10, 10, 10, 10, 10,
-// 10, 10, 10, 10, 10
+// 10, 10, 10, 10, 10, 10, 10, 10, 10, 10
 ```
 <!-- .element: class="fragment" -->
 ___
+
+# Scope Gotcha
+
 ```
 for (let i = 0; i < 10; i++) {
   setTimeout(function() {
@@ -95,19 +115,28 @@ for (let i = 0; i < 10; i++) {
 ```
 
 ```
-// 0, 1, 2, 3, 4,
-// 5, 6, 7, 8, 9
+// 0, 1, 2, 3, 4, 5, 6, 7, 8, 9
 ```
 <!-- .element: class="fragment" -->
 ___
+
+# Scope Gotcha
+
 ```
-IFEE!
 for (var i = 0; i < 10; i++) {
-  setTimeout(function() {
-    console.log(i);
-  }, 1000);
+  (function () {
+    var k = i;
+    setTimeout(function() {
+      console.log(k);
+    }, 1000);
+  })();
 }
 ```
+
+```
+// 0, 1, 2, 3, 4, 5, 6, 7, 8, 9
+```
+<!-- .element: class="fragment" -->
 ---
 
 # Use Strict
@@ -198,7 +227,7 @@ hasProp(newestObj);
 ___
 ## Default Variable Values
 ```
-var vehicle;
+let vehicle;
 if (!!obj.prop) {
   vehicle = obj.prop;
 } else {
@@ -208,7 +237,10 @@ if (!!obj.prop) {
 ___
 ## Default Variable Values
 ```
-var vehicle = obj.prop || 'truck';
+let car;
+let vehicle = car || 'truck';
+console.log(vehicle);
+// 'truck'
 ```
 ___
 ## Default Argument Values
@@ -216,14 +248,40 @@ ___
 function vehicleType(type = 'truck') {
   return type;
 }
-const vehicleType = (type = 'truck') => type;
+vehicleType(null);
+// 'truck'
 ```
+```
+const vehicleType = (type = 'truck') => type;
+vehicleType(null);
+// 'truck'
+```
+<!-- .element: class="fragment" -->
 ---
 
 ## Empty Object Test
 
 ```
 (Object.keys(obj).length === 0)
+```
+___
+
+## Object to Array
+
+```
+let arr = Object.keys(obj).map(i => {
+  // do magic here
+  return obj[i];
+});
+let arr = Object.keys(obj).forEach(i => {
+  // do magic here
+  return obj[i];
+});
+let arr = Object.keys(obj).filter(i => {
+  // do magic here
+  return obj[i].bool === true;
+});
+
 ```
 ---
 
@@ -233,32 +291,51 @@ const vehicleType = (type = 'truck') => type;
 var x = 15;
 var y = x + '15';
 console.log(y);
-```
-<!-- .element: class="fragment" -->
-```
 // string... '1515'
 ```
-<!-- .element: class="fragment" -->
 ___
 
 ## Converting Variable Types
 
 ```
 var x = '15';
-var y = parseInt(x);
+var y = +x;
 console.log(y);
 // number 15
+var z = -x;
+console.log(z);
+// number -15
 ```
 ___
 
 ## Converting Variable Types
 
 ```
-var x = {key:'value',key2:'value2'};
-var y = Object.keys(x);
-console.log(y);
-// ['key','key2']
+var t = 1;
+var f = 0;
+!!t
+// true
+!!f
+// false
 ```
+___
+
+## Converting Variable Types
+
+```
+var foo = { hello: "world" };
+JSON.stringify(foo);
+// string '{ "hello":"world" }'
+```
+
+```
+JSON.stringify(foo, null, 4);
+// string
+// '{
+//    "hello": "world"
+// }'
+```
+<!-- .element: class="fragment" -->
 ---
 
 # JavaScript Tricks
