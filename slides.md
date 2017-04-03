@@ -336,6 +336,15 @@ JSON.stringify(foo, null, 4);
 // }'
 ```
 <!-- .element: class="fragment" -->
+
+## Converting Variable Types
+
+```
+var args = { 0: "foo", 1: "bar" };
+Array.prototype.slice.call(args)
+// [ 'foo', 'bar' ]
+```
+
 ---
 
 # JavaScript Tricks
