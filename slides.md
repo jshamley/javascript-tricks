@@ -1,7 +1,7 @@
 
 # JavaScript Tricks
 
-Jeff Shamley | @jeff_shamley | https://jeffshamley.com
+Jeff Shamley | @jeff_shamley
 
 ---
 
@@ -352,4 +352,4 @@ Array.prototype.slice.call(args)
 
 ## Questions?
 
-Jeff Shamley | @jeff_shamley | https://jeffshamley.com
+Jeff Shamley | @jeff_shamley
