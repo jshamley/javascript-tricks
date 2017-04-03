@@ -336,6 +336,7 @@ JSON.stringify(foo, null, 4);
 // }'
 ```
 <!-- .element: class="fragment" -->
+___
 
 ## Converting Variable Types
 
